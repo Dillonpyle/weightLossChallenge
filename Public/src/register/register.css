@@ -1,0 +1,38 @@
+#form{
+    width: 40%;
+    text-align: center;
+    margin: 0 auto;
+}
+#registerHeader{
+    text-align: center;
+}
+
+#homeImg {
+    height: 30%;
+    width: 45%;
+    border: 2px solid #000;
+    border-radius: 230px / 150px;
+    
+  }
+  #homeImgDiv{
+    text-align: center;
+  }
+
+@media(min-width: 650px){
+    #homeImg {
+        height: 30%;
+        width: 45%;
+    }
+
+}
+
+
+@media(max-width: 500px){
+    #form{
+        width: 100%;
+    }
+    #homeImgDiv {
+        height: 100%;
+    }
+
+}

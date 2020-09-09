@@ -1,0 +1,23 @@
+#navbar{
+    background: gray;
+    text-decoration: none;
+    height: 100%;
+    padding-top: 10px;
+}
+#homeLink{
+    font-family: 'Fredericka the Great', cursive;
+    color: rgb(238, 236, 236);
+    padding-left: 20px;
+    font-size: 32px;
+}
+a:-webkit-any-link{
+    text-decoration: none;
+}
+
+#logout{
+    font-family: 'Fredericka the Great', cursive;
+    color: rgb(238, 236, 236);
+    float: right;
+    padding-right: 20px;
+    font-size: 32px;
+}

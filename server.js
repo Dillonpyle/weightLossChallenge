@@ -39,6 +39,6 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(process.env.PORT, () => {
-    console.log('its over 9000!');
+app.listen(process.env.PORT || 9000, () => {
+    console.log('its level is over 9000!');
 });
