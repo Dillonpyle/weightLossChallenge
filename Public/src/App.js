@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter, } from 'react-router-dom';
-import Home from './Home';
+import UserPage from './UserHome';
+import Home from './Home'
 import Register from './register';
 import Navagation from './Navagation';
-
-
-
-
-
-
+import Weight from './WeightChallenge';
+import Inches from './InchesChallenge';
 
 require('dotenv').config()
 
@@ -18,7 +15,8 @@ class App extends Component {
         username: '',
         password: '',
         phone: '',
-        email: ''
+        email: '',
+        weight: 'Field Empty'
     }
 
 
@@ -126,8 +124,11 @@ class App extends Component {
             <div>
                 <main>
                     <Switch>
-                        <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />} />
-                        <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} />} />
+                        <Route exact path='/' render={() => <Home username={this.state.username} user_id={this.state.user_id} />} />
+                        <Route exact path='/register' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />} />
+                        <Route exact path='/userpage' render={() => <UserPage username={this.state.username} user_id={this.state.user_id} />} />
+                        <Route exact path='/weightchallenge' render={() => <Weight username={this.state.username} user_id={this.state.user_id} weight={this.state.weight} />} />
+                        <Route exact path='/incheschallenge' render={() => <Inches username={this.state.username} user_id={this.state.user_id} />} />
                     </Switch>
                 </main>
                 <footer>

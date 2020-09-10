@@ -4,12 +4,10 @@ import './home.css'
 
 
 
-const Home = ({ username }) => {
+const UserPage = ({ username }) => {
     return (
         <div id='homeBody'>
-            <h1 id='homeHeader'></h1>
-            <h3>Welcome to the Team Beauty women’s only 6 week challenge. That help motivate & Keep you accountable for the results you want! to the Team Beauty women’s only 6 week challenge. That help motivate & Keep you accountable for the results you want!</h3>
-
+            <h1 id='homeHeader'>this is {username}'s Page</h1>
             <div id='homePageButtons'>
                 <Link to={'/weightchallenge'}><button >Weight Challlenge</button></Link>
                 <Link to={'/incheschallenge'}>  <button > Inches Challenge</button> </Link>
@@ -19,4 +17,4 @@ const Home = ({ username }) => {
     )
 }
 
-export default withRouter(Home);
+export default withRouter(UserPage)
