@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap';
-import { Link, withRouter } from 'react-router-dom';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { withRouter } from 'react-router-dom';
 import img from './pantry1.jpeg'
 
 import './register.css';
@@ -10,8 +10,8 @@ const Register = ({ handleRegister, handleSubmit, handleChange, handleClick }) =
     return (
         <React.Fragment>
             <div id='registerHeader'>
-                <h1>PantryPal</h1>
-                <h2>Keep track of your pantry</h2>
+                <h1>Weightloss Challenge</h1>
+                <h2>Keep track of your progress</h2>
             </div>
             <div id='form'>
                 <h3>Login Here</h3>
@@ -46,10 +46,10 @@ const Register = ({ handleRegister, handleSubmit, handleChange, handleClick }) =
 
             </div>
             <div id="homeImgDiv">
-                <img id='homeImg' src={img} />
+                <img id='homeImg' src={img} alt="fitness" />
             </div>
         </React.Fragment>
     )
 }
 
-export default withRouter(Register);
+export default withRouter(Register); 

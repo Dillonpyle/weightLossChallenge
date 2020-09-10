@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 
 //import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,9 +10,9 @@ import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={history}>
+  <BrowserRouter history={history}>
     <App />
-  </Router>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

@@ -28,7 +28,8 @@ router.post('/register', async (req, res) => {
         res.json({
             status: 200,
             data: `user created ${createdUser}`,
-            userId: createdUser._id
+            userId: createdUser._id,
+            username: createdUser.username
         })
     } catch (err) {
         console.log(err);
@@ -54,7 +55,8 @@ router.post('/', async (req, res) => {
                 res.json({
                     status: 200,
                     data: 'login successful',
-                    userId: foundUser._id
+                    userId: foundUser._id,
+                    username: foundUser.username
                 })
             } else {
                 req.session.message = 'Username or password are incorrect';

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter, } from 'react-router-dom';
-import Login from './Login/Login';
 import Home from './Home';
 import Register from './register';
 import Navagation from './Navagation';
-import { createBrowserHistory } from 'history';
-//import history from './history';
+
+
 
 
 
@@ -22,34 +21,7 @@ class App extends Component {
         email: ''
     }
 
-    handleSignUp = async (e) => {
 
-        e.preventDefault();
-        try {
-            const loginResponse = await fetch(`http://localhost:9000/login/register`, {
-                method: 'POST',
-                body: JSON.stringify(this.state),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            if (!loginResponse.ok) {
-                throw Error(loginResponse.statusText)
-            }
-
-            const parsedResponse = await loginResponse.json();
-
-
-            // if (parsedResponse.data === 'login successful') {
-            //   this.props.history.push('/map')
-            // }
-
-            console.log(parsedResponse, 'loginResponse')
-        } catch (err) {
-            console.log(err)
-        }
-    }
 
     handleRegister = async (e) => {
         e.preventDefault();
@@ -67,25 +39,18 @@ class App extends Component {
             if (!loginResponse.ok) {
                 throw Error(loginResponse.statusText)
             }
-
             //taken from pantry-app-fe
             const registerParsed = await loginResponse.json()
+            console.log(registerParsed, "this is registerParsed")
+
             if (loginResponse.ok) {
                 this.setState({
-                    user_id: registerParsed.id,
+                    user_id: registerParsed.userId,
                     username: registerParsed.username
                 });
-                console.log('history')
-                this.props.history.push('/Home')
+                console.log(this.state, 'this is state');
+                this.props.history.push('/home')
             }
-
-            // const parsedResponse = await loginResponse.json();
-            // if (parsedResponse.data === 'login successful') {
-            //     this.setState({
-            //         id: parsedResponse.userId
-            //     })
-            //     this.props.history.push('/home')
-            // }
 
         } catch (err) {
             console.log(err)
@@ -96,7 +61,6 @@ class App extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        //fetch('http://localhost:9000/user')
         try {
             const loginResponse = await fetch(`http://localhost:9000/login/register`, {
                 method: 'POST',
@@ -113,20 +77,21 @@ class App extends Component {
             }
 
             const parsedResponse = await loginResponse.json();
-            console.log(parsedResponse, 'this is logins response')
+            console.log(parsedResponse, 'this is sign ups response');
+            console.log(parsedResponse.username, 'this is parsedResponse.username');
 
 
             if (loginResponse.ok) {
                 this.setState({
-                    user_id: parsedResponse.id,
+                    user_id: parsedResponse.userId,
                     username: parsedResponse.username
                 });
                 console.log(this)
-                this.props.history.push('/Home')
+                this.props.history.push('/home')
             }
 
             console.log(this.state, "this is state")
-            console.log(parsedResponse, "this is parsedResponse")
+            console.log(parsedResponse, "this is sign ups parsedResponse")
 
         } catch (err) {
             console.log(err)
@@ -158,17 +123,17 @@ class App extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div>
                 <main>
                     <Switch>
                         <Route exact path='/' render={() => <Register handleRegister={this.handleRegister} handleChange={this.handleChange} handleSubmit={this.handleSubmit} handleClick={this.handleClick} />} />
-                        <Route exact path='/Home' render={() => <Home username={this.state.username} user_id={this.state.user_id} />} />
+                        <Route exact path='/home' render={() => <Home username={this.state.username} user_id={this.state.user_id} />} />
                     </Switch>
                 </main>
                 <footer>
                     <Navagation />
                 </footer>
-            </React.Fragment>
+            </div>
 
         );
     }
